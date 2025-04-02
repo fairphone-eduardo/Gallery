@@ -20,8 +20,8 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.dot.gallery"
-        minSdk = 30
+        applicationId = "com.fairphone.gallery"
+        minSdk = 35
         targetSdk = 35
         versionCode = 31209
         versionName = "3.1.2"
@@ -30,17 +30,22 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        base.archivesName.set("Gallery-${versionName}-$versionCode" + mapsApiApplicationPrefix)
+        base.archivesName.set("FairphoneGallery-${versionName}-$versionCode" + mapsApiApplicationPrefix)
+
+        // Build only for arm64-v8a architecture
+        ndk {
+            abiFilters.add("arm64-v8a")
+        }
     }
 
     lint.baseline = file("lint-baseline.xml")
 
     signingConfigs {
         create("release") {
-            storeFile = file("release_key.jks")
-            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            storeFile = file("../fairphone_gallery_release_key.jks")
+            storePassword = System.getenv("FAIRPHONE_GALLERY_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("FAIRPHONE_GALLERY_KEY_ALIAS")
+            keyPassword = System.getenv("FAIRPHONE_GALLERY_KEY_PASSWORD")
         }
     }
 
