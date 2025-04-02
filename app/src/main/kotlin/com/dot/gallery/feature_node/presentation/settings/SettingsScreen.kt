@@ -115,7 +115,8 @@ fun SettingsScreen(
                 .fillMaxSize(),
             contentPadding = padding
         ) {
-            item { SettingsAppHeader() }
+            // Hide donation box
+            // item { SettingsAppHeader() }
             items(
                 items = settingsList,
                 key = { it.title + it.type.toString() }
