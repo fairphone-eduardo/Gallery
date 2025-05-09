@@ -26,6 +26,7 @@
 -dontwarn org.slf4j.impl.StaticLoggerBinder
 
 -keep class com.dot.gallery.feature_node.presentation.edit.adjustments.** { *; }
+-keep class com.fairphone.gallery.feature_node.presentation.edit.adjustments.** { *; }
 
 -dontwarn com.google.auto.value.AutoValue$Builder
 -dontwarn com.google.auto.value.AutoValue
